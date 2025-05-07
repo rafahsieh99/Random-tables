@@ -21,7 +21,7 @@ def asignar_mesas_csv(
     # 3) Detecta columna de estado “Activo”
     col_estado = next(
         (c for c in df.columns 
-           if df[c].astype(str).str.strip().str.lower().eq('activo').any()),
+        if df[c].astype(str).str.strip().str.lower().eq('activo').any()),
         None
     )
     if col_estado is None:
@@ -66,8 +66,8 @@ def asignar_mesas_csv(
         df_output.to_excel(writer, sheet_name="Mesas", index=False)
 
     print(f"✅ Se ha generado el Excel: {salida_excel}  "
-          f"({num_mesas} mesas: {extra} de {base+1} y "
-          f"{num_mesas-extra} de {base} integrantes)")
+        f"({num_mesas} mesas: {extra} de {base+1} y "
+        f"{num_mesas-extra} de {base} integrantes)")
 
 if __name__ == "__main__":
     asignar_mesas_csv("alumnos.csv")
